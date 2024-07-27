@@ -1,0 +1,27 @@
+---
+- name: Install kernel devel utils
+  community.general.pacman:
+    update_cache: true
+    name: "{{ item }}"
+  with_items:
+    - base-devel
+    - xmlto
+    - kmod
+    - inetutils
+    - bc
+    - libelf
+    - git
+    - cpio
+    - perl
+    - tar
+    - xz
+
+- name: Create kernel dir
+  ansible.builtin.file:
+    path: "{{ kernel_dst }}"
+    state: directory
+
+- name: Download Kernel
+  ansible.builtin.get_url:
+    url: "{{ kernel_url }}"
+    dest: "{{ kernel_dst }}"
