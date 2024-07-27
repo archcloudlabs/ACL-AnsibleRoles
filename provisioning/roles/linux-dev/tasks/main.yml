@@ -25,3 +25,9 @@
   ansible.builtin.get_url:
     url: "{{ kernel_url }}"
     dest: "{{ kernel_dst }}"
+
+- name: Extract Linux Kernel
+  ansible.builtin.unarchive:
+    src: "{{ kernel_dst }}/{{ kernel_tar }}"
+    dest: "{{ kernel_dst }}"
+    remote_src: yes
