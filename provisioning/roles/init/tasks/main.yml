@@ -1,0 +1,16 @@
+---
+- name: Install basic packages
+  community.general.pacman:
+    update_cache: true
+    name: "{{ item }}"
+  with_items:
+    - curl
+    - vim
+    - wget
+    - rsync
+
+
+- name: Upgrade all packages
+  ansible.builtin.reboot:
+  tags:
+    - reboot
