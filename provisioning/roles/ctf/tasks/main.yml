@@ -1,0 +1,9 @@
+---
+- name: Install CTF packages
+  community.general.pacman:
+    update_cache: true
+    name: "{{ item }}"
+  with_items:
+    - radare2
+    - ghidra
+    - gdb
