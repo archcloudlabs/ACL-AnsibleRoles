@@ -1114,4 +1114,5 @@
   with_items:
     - libvirtd
     - NetworkManager
+    - docker
   tags: systemd
