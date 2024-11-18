@@ -1105,9 +1105,13 @@
     - zstd
     - zziplib
     - gdb
-
+  tags: packages
 
 - name: Enable Systemd Services
   ansible.builtin.systemd_service:
-    name: libvirtd
+    name: "{{ item }}"
     enabled: true
+  with_items:
+    - libvirtd
+    - NetworkManager
+  tags: systemd
