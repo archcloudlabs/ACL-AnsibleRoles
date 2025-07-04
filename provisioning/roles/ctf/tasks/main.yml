@@ -7,3 +7,7 @@
     - radare2
     - ghidra
     - gdb
+    - gef
+    - python-keystone
+    - python-capstone
+    - python-unicorn
