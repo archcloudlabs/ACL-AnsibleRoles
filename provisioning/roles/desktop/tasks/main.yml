@@ -729,6 +729,8 @@
     - nspr
     - nss
     - numactl
+    - man-pages
+    - man-db
     - ocl-icd
     - oniguruma
     - openbsd-netcat
