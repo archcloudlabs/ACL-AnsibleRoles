@@ -1,0 +1,34 @@
+---
+- name: Install Desktop Packages
+  community.general.pacman:
+    update_cache: true
+    name: "{{ item }}"
+  with_items:
+    - aalib
+    - aardvark-dns
+    - abseil-cpp
+    - mesa 
+    - xf86-video-amdgpu
+    - vulkan-radeon 
+    - libva-mesa-driver 
+    - mesa-vdpau 
+    - xorg-xrandr
+    - xf86-input-libinput
+    - tuned
+    - tuned-ppd
+    - noto-fonts
+    - git 
+    - wget
+    - btop 
+    - amdgpu_top
+  tags: framework-packages
+
+- name: Enable Systemd Services
+  ansible.builtin.systemd_service:
+    name: "{{ item }}"
+    enabled: true
+  with_items:
+    - libvirtd
+    - NetworkManager
+    - docker
+  tags: systemd
